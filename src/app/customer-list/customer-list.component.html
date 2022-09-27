@@ -1,0 +1,18 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Folio</th>
+      <th>Full Name</th>
+      <th>Gender</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of customers$ | async">
+      <td>{{ c.id }}</td>
+      <td>{{ c.folioNumber }}</td>
+      <td>{{ c.firstName }} {{ c.lastName }}</td>
+      <td>{{ c.gender }}</td>
+    </tr>
+  </tbody>
+</table>
