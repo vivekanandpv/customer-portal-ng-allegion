@@ -62,3 +62,15 @@ export interface LoginViewModel {
   username: string;
   password: string;
 }
+
+export interface JwtViewModel {
+  jwt: string;
+}
+
+export interface UserViewModel {
+  unique_name: string;
+  FullName: string;
+  AvatarUrl: string;
+  Roles: string[];
+  token: string;
+}
