@@ -19,13 +19,49 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a
+            class="nav-link"
+            routerLink="/"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Home</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
+          <a
+            class="nav-link"
+            routerLink="/customers"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Customers</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
+          <a
+            class="nav-link"
+            routerLink="/customers/new"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >New Customer</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/accounts"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Accounts</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/accounts/new"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >New Account</a
+          >
         </li>
       </ul>
     </div>
@@ -33,7 +69,13 @@
   <div class="me-3">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Login</a>
+        <a
+          class="nav-link"
+          routerLink="/login"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Login</a
+        >
       </li>
     </ul>
   </div>
