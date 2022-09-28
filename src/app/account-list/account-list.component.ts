@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { RestService } from '../rest.service';
 import { AccountViewModel } from '../_models/app.models';
@@ -9,11 +9,9 @@ import { AccountViewModel } from '../_models/app.models';
   styleUrls: ['./account-list.component.scss'],
 })
 export class AccountListComponent implements OnInit {
-  accounts$: Observable<AccountViewModel[]>;
+  @Input() accounts?: AccountViewModel[] | null;
 
-  constructor(private restService: RestService) {
-    this.accounts$ = this.restService.read<AccountViewModel[]>('accounts');
-  }
+  constructor() {}
 
   ngOnInit(): void {}
 }

@@ -20,6 +20,8 @@ import { HomeComponent } from './home/home.component';
 import { AuthInterceptor } from './auth.interceptor';
 import { ToastrModule } from 'ngx-toastr';
 import { ErrorHandlerInterceptor } from './error-handler.interceptor';
+import { CustomerPageComponent } from './customer-page/customer-page.component';
+import { AccountPageComponent } from './account-page/account-page.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { ErrorHandlerInterceptor } from './error-handler.interceptor';
     NotFoundComponent,
     UnauthorizedComponent,
     HomeComponent,
+    CustomerPageComponent,
+    AccountPageComponent,
   ],
   imports: [
     BrowserModule,

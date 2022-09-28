@@ -3,10 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccountDetailComponent } from './account-detail/account-detail.component';
 import { AccountFormComponent } from './account-form/account-form.component';
 import { AccountListComponent } from './account-list/account-list.component';
+import { AccountPageComponent } from './account-page/account-page.component';
 import { AuthenticatedGuard } from './authenticated.guard';
 import { CustomerDetailComponent } from './customer-detail/customer-detail.component';
 import { CustomerFormComponent } from './customer-form/customer-form.component';
 import { CustomerListComponent } from './customer-list/customer-list.component';
+import { CustomerPageComponent } from './customer-page/customer-page.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -40,7 +42,7 @@ const routes: Routes = [
       },
       {
         path: 'details/:id',
-        component: CustomerDetailComponent,
+        component: CustomerPageComponent,
       },
     ],
   },
@@ -62,7 +64,7 @@ const routes: Routes = [
       },
       {
         path: 'details/:id',
-        component: AccountDetailComponent,
+        component: AccountPageComponent,
       },
     ],
   },

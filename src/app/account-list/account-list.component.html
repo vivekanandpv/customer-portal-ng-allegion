@@ -1,27 +1,29 @@
-<h3>Accounts</h3>
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Account Number</th>
-      <th>Type</th>
-      <th>IFSC</th>
-      <th>Options</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let a of accounts$ | async">
-      <td>{{ a.id }}</td>
-      <td>{{ a.accountNumber }}</td>
-      <td>{{ a.type }}</td>
-      <td>{{ a.ifsc }}</td>
-      <td>
-        <span
-          class="me-3 btn btn-primary btn-sm"
-          [routerLink]="['/accounts', 'details', a.id]"
-          >Details</span
-        >
-      </td>
-    </tr>
-  </tbody>
-</table>
+<ng-container *ngIf="accounts">
+  <h3>Accounts</h3>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Account Number</th>
+        <th>Type</th>
+        <th>IFSC</th>
+        <th>Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let a of accounts">
+        <td>{{ a.id }}</td>
+        <td>{{ a.accountNumber }}</td>
+        <td>{{ a.type }}</td>
+        <td>{{ a.ifsc }}</td>
+        <td>
+          <span
+            class="me-3 btn btn-primary btn-sm"
+            [routerLink]="['/accounts', 'details', a.id]"
+            >Details</span
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ng-container>
