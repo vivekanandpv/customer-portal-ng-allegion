@@ -1,1 +1,94 @@
-<p>customer-detail works!</p>
+<ng-container *ngIf="customer$ | async as customer">
+  <table class="table table-bordered table-sm">
+    <tbody>
+      <tr>
+        <th>Id</th>
+        <td>{{ customer.id }}</td>
+      </tr>
+      <tr>
+        <th>Folio Number</th>
+        <td>{{ customer.folioNumber }}</td>
+      </tr>
+      <tr>
+        <th>First Name</th>
+        <td>{{ customer.firstName }}</td>
+      </tr>
+      <tr>
+        <th>Last Name</th>
+        <td>{{ customer.lastName }}</td>
+      </tr>
+      <tr>
+        <th>Gender</th>
+        <td>{{ customer.gender }}</td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td>{{ customer.email }}</td>
+      </tr>
+      <tr>
+        <th>Marital Status</th>
+        <td>{{ customer.maritalStatus }}</td>
+      </tr>
+      <tr>
+        <th>Source of Income</th>
+        <td>{{ customer.sourceOfIncome }}</td>
+      </tr>
+      <tr>
+        <th>Annual Income</th>
+        <td>{{ customer.annualIncome }}</td>
+      </tr>
+      <tr>
+        <th>Address Line 1</th>
+        <td>{{ customer.addressLine1 }}</td>
+      </tr>
+      <tr>
+        <th>Address Line 2</th>
+        <td>{{ customer.addressLine2 }}</td>
+      </tr>
+      <tr>
+        <th>Address Line 3</th>
+        <td>{{ customer.addressLine3 }}</td>
+      </tr>
+      <tr>
+        <th>City</th>
+        <td>{{ customer.city }}</td>
+      </tr>
+      <tr>
+        <th>State</th>
+        <td>{{ customer.state }}</td>
+      </tr>
+      <tr>
+        <th>PIN</th>
+        <td>{{ customer.pin }}</td>
+      </tr>
+      <tr>
+        <th>PAN</th>
+        <td>{{ customer.pan }}</td>
+      </tr>
+      <tr>
+        <th>Date of Birth</th>
+        <td>{{ customer.dateOfBirth | date: "dd-MM-yyyy" }}</td>
+      </tr>
+      <tr>
+        <th>Mobile Number</th>
+        <td>{{ customer.mobileNumber }}</td>
+      </tr>
+      <tr>
+        <th>Telephone</th>
+        <td>{{ customer.telephone }}</td>
+      </tr>
+      <tr>
+        <th>Nominee First Name</th>
+        <td>{{ customer.nomineeFirstName }}</td>
+      </tr>
+      <tr>
+        <th>Nominee Last Name</th>
+        <td>{{ customer.nomineeLastName }}</td>
+      </tr>
+      <tr>
+        <th>Nominee Relationship</th>
+        <td>{{ customer.nomineeRelationship }}</td>
+      </tr>
+    </tbody>
+  </table>
+</ng-container>

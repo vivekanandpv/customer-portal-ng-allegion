@@ -5,6 +5,7 @@
       <th>Folio</th>
       <th>Full Name</th>
       <th>Gender</th>
+      <th>Options</th>
     </tr>
   </thead>
   <tbody>
@@ -13,6 +14,13 @@
       <td>{{ c.folioNumber }}</td>
       <td>{{ c.firstName }} {{ c.lastName }}</td>
       <td>{{ c.gender }}</td>
+      <td>
+        <span
+          class="me-3 btn btn-primary btn-sm"
+          [routerLink]="['/customers', 'details', c.id]"
+          >Details</span
+        >
+      </td>
     </tr>
   </tbody>
 </table>
