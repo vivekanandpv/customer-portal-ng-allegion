@@ -1,4 +1,8 @@
 <ng-container *ngIf="account$ | async as account">
+  <h3>Account Details: {{ account.id }}</h3>
+  <a routerLink="/accounts" class="nav-link text-primary my-2"
+    >Back to Accounts</a
+  >
   <table class="table table-bordered">
     <tbody>
       <tr>
