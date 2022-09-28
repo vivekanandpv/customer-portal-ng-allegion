@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { RestService } from '../rest.service';
@@ -10,15 +10,9 @@ import { AccountViewModel } from '../_models/app.models';
   styleUrls: ['./account-detail.component.scss'],
 })
 export class AccountDetailComponent implements OnInit {
-  accountId: number;
-  account$: Observable<AccountViewModel>;
+  @Input() account?: AccountViewModel | null;
 
-  constructor(private ar: ActivatedRoute, private restService: RestService) {
-    this.accountId = +(this.ar.snapshot.paramMap.get('id') ?? '');
-    this.account$ = this.restService.read<AccountViewModel>(
-      `accounts/${this.accountId}`
-    );
-  }
+  constructor() {}
 
   ngOnInit(): void {}
 }

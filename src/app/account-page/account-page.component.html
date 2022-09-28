@@ -1,1 +1,8 @@
-<p>account-page works!</p>
+<div class="row">
+  <div class="col">
+    <app-account-detail [account]="account$ | async"></app-account-detail>
+  </div>
+  <div class="col">
+    <app-customer-detail [customer]="customer$ | async"></app-customer-detail>
+  </div>
+</div>
