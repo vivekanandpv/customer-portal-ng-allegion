@@ -1,1 +1,60 @@
-<p>account-detail works!</p>
+<ng-container *ngIf="account$ | async as account">
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <th>Id</th>
+        <td>{{ account.id }}</td>
+      </tr>
+      <tr>
+        <th>Account Number</th>
+        <td>{{ account.accountNumber }}</td>
+      </tr>
+      <tr>
+        <th>Type</th>
+        <td>{{ account.type }}</td>
+      </tr>
+      <tr>
+        <th>Rate of Interest</th>
+        <td>{{ account.rateOfInterest | percent: "2.2" }}</td>
+      </tr>
+      <tr>
+        <th>Created On</th>
+        <td>{{ account.createdOn | date: "dd-MM-yyyy" }}</td>
+      </tr>
+      <tr>
+        <th>Status</th>
+        <td>{{ account.status }}</td>
+      </tr>
+      <tr>
+        <th>Closed On</th>
+        <td>
+          {{
+            account.closedOn
+              ? (account.closedOn | date: "dd-MM-yyyy")
+              : "-- NA --"
+          }}
+        </td>
+      </tr>
+      <tr>
+        <th>IFSC</th>
+        <td>{{ account.ifsc }}</td>
+      </tr>
+      <tr>
+        <th>Card Number</th>
+        <td>{{ account.cardNumber ? account.cardNumber : "-- NA --" }}</td>
+      </tr>
+      <tr>
+        <th>Card Active?</th>
+        <td>{{ account.cardActive ? "Yes" : "No" }}</td>
+      </tr>
+      <tr>
+        <th>Currency</th>
+        <td>{{ account.currency }}</td>
+      </tr>
+      <tr>
+        <th>Customer</th>
+        <td>{{ account.customerId }}</td>
+      </tr>
+    </tbody>
+  </table>
+</ng-container>
