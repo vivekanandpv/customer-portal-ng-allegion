@@ -22,6 +22,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { ErrorHandlerInterceptor } from './error-handler.interceptor';
 import { CustomerPageComponent } from './customer-page/customer-page.component';
 import { AccountPageComponent } from './account-page/account-page.component';
+import { AccountAggregationComponent } from './account-aggregation/account-aggregation.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { AccountPageComponent } from './account-page/account-page.component';
     HomeComponent,
     CustomerPageComponent,
     AccountPageComponent,
+    AccountAggregationComponent,
   ],
   imports: [
     BrowserModule,

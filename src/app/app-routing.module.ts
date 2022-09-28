@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AccountAggregationComponent } from './account-aggregation/account-aggregation.component';
 import { AccountDetailComponent } from './account-detail/account-detail.component';
 import { AccountFormComponent } from './account-form/account-form.component';
 import { AccountListComponent } from './account-list/account-list.component';
@@ -52,7 +53,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: AccountListComponent,
+        component: AccountAggregationComponent,
       },
       {
         path: 'new',
