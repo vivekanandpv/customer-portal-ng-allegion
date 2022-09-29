@@ -1,1 +1,134 @@
-<p>account-form works!</p>
+<h3>{{ formId === 0 ? "New " : "Edit " }} Account</h3>
+<hr />
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-group my-3">
+    <label for="">Account Number</label>
+    <input type="number" [formControl]="accountNumber" class="form-control" />
+    <p
+      class="validation-error"
+      *ngIf="accountNumber.touched && accountNumber.hasError('required')"
+    >
+      Required
+    </p>
+    <p
+      class="validation-error"
+      *ngIf="accountNumber.touched && accountNumber.hasError('pattern')"
+    >
+      Invalid entry
+    </p>
+  </div>
+  <div class="form-group my-3">
+    <label for="">IFSC</label>
+    <input type="text" [formControl]="ifsc" class="form-control" />
+    <p
+      class="validation-error"
+      *ngIf="ifsc.touched && ifsc.hasError('required')"
+    >
+      Required
+    </p>
+    <p
+      class="validation-error"
+      *ngIf="ifsc.touched && ifsc.hasError('pattern')"
+    >
+      Invalid entry
+    </p>
+  </div>
+  <div class="form-group my-3">
+    <label for="">Card Number</label>
+    <input type="number" [formControl]="cardNumber" class="form-control" />
+
+    <p
+      class="validation-error"
+      *ngIf="cardNumber.touched && cardNumber.hasError('pattern')"
+    >
+      Invalid entry
+    </p>
+  </div>
+  <div class="form-group my-3">
+    <label for="">Rate of Interest</label>
+    <input
+      type="number"
+      step="0.01"
+      [formControl]="rateOfInterest"
+      class="form-control"
+    />
+    <p
+      class="validation-error"
+      *ngIf="rateOfInterest.touched && rateOfInterest.hasError('required')"
+    >
+      Required
+    </p>
+  </div>
+  <div class="form-group my-3">
+    <label for="">Account Type</label>
+    <select class="form-select" [formControl]="type">
+      <option value="Term">Term</option>
+      <option value="Recurring">Recurring</option>
+      <option value="Savings">Savings</option>
+      <option value="Current">Current</option>
+      <option value="Personal_Loan">Personal Loan</option>
+      <option value="Auto_Loan">Auto Loan</option>
+      <option value="Credit_Card">Credit Card</option>
+      <option value="Home_Loan">Home Loan</option>
+      <option value="Overdraft">Overdraft</option>
+    </select>
+    <p
+      class="validation-error"
+      *ngIf="type.touched && type.hasError('required')"
+    >
+      Required
+    </p>
+  </div>
+
+  <div class="form-group my-3">
+    <label for="">Customer</label>
+    <select class="form-select" [formControl]="customerId">
+      <option *ngFor="let p of customers$ | async" [value]="p.id">
+        {{ p.fullName }}
+      </option>
+    </select>
+    <p
+      class="validation-error"
+      *ngIf="type.touched && type.hasError('required')"
+    >
+      Required
+    </p>
+  </div>
+
+  <div class="form-group my-3">
+    <label for="">Status</label>
+    <select class="form-select" [formControl]="status">
+      <option value="Active">Active</option>
+      <option value="Inactive">Inactive</option>
+      <option value="Closed">Closed</option>
+      <option value="Dormant">Dormant</option>
+    </select>
+    <p
+      class="validation-error"
+      *ngIf="status.touched && status.hasError('required')"
+    >
+      Required
+    </p>
+  </div>
+  <div class="form-group my-3">
+    <label for="">Created On</label>
+    <input type="date" [formControl]="createdOn" class="form-control" />
+    <p
+      class="validation-error"
+      *ngIf="createdOn.touched && createdOn.hasError('required')"
+    >
+      Required
+    </p>
+  </div>
+  <div class="form-group my-3">
+    <label for="">Closed On</label>
+    <input type="date" [formControl]="closedOn" class="form-control" />
+    <p
+      class="validation-error"
+      *ngIf="closedOn.touched && closedOn.hasError('required')"
+    >
+      Required
+    </p>
+  </div>
+  <button class="btn btn-primary">Submit</button>
+</form>

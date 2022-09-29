@@ -1,4 +1,7 @@
 <h3>Customers</h3>
+<a routerLink="/customers/new" class="nav-link text-primary my-2"
+  >New Customer</a
+>
 
 <table class="table table-bordered">
   <thead>
@@ -21,6 +24,11 @@
           class="me-3 btn btn-primary btn-sm"
           [routerLink]="['/customers', 'details', c.id]"
           >Details</span
+        >
+        <span
+          class="me-3 btn btn-primary btn-sm"
+          [routerLink]="['/customers', 'edit', c.id]"
+          >Edit</span
         >
       </td>
     </tr>

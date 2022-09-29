@@ -74,3 +74,8 @@ export interface UserViewModel {
   Roles: string[];
   token: string;
 }
+
+export interface CustomerIdNamePair {
+  id: number;
+  fullName: string;
+}
