@@ -61,7 +61,7 @@ export class CustomerFormComponent implements OnInit {
         '',
         [Validators.required, Validators.pattern(/^[6-9][0-9]{9}$/)],
       ],
-      telephone: [, [Validators.pattern(/^[0-9]{11}$/)]],
+      telephone: ['', [Validators.pattern(/^[0-9]{11}$/)]],
       nomineeFirstName: ['', [Validators.required, Validators.maxLength(50)]],
       nomineeLastName: ['', [Validators.maxLength(50)]],
       nomineeRelationship: [
