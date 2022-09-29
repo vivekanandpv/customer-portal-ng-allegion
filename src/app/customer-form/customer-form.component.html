@@ -1,1 +1,316 @@
-<p>customer-form works!</p>
+<h3>{{ formId === 0 ? "New " : "Edit " }} Customer</h3>
+<hr />
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-group my-3">
+    <label for="">Folio Number</label>
+    <input type="number" [formControl]="folioNumber" class="form-control" />
+    <p
+      class="validation-error"
+      *ngIf="folioNumber.touched && folioNumber.hasError('required')"
+    >
+      Required
+    </p>
+    <p
+      class="validation-error"
+      *ngIf="folioNumber.touched && folioNumber.hasError('pattern')"
+    >
+      Pattern
+    </p>
+  </div>
+  <div class="form-group my-3">
+    <label for="">First Name</label>
+    <input type="text" [formControl]="firstName" class="form-control" />
+    <p
+      class="validation-error"
+      *ngIf="firstName.touched && firstName.hasError('required')"
+    >
+      Required
+    </p>
+    <p
+      class="validation-error"
+      *ngIf="firstName.touched && firstName.hasError('maxlength')"
+    >
+      Max 50 characters
+    </p>
+  </div>
+  <div class="form-group my-3">
+    <label for="">Last Name</label>
+    <input type="text" [formControl]="lastName" class="form-control" />
+    <p
+      class="validation-error"
+      *ngIf="lastName.touched && lastName.hasError('required')"
+    >
+      Required
+    </p>
+    <p
+      class="validation-error"
+      *ngIf="lastName.touched && lastName.hasError('maxlength')"
+    >
+      Max 50 characters
+    </p>
+  </div>
+  <div class="form-group my-3">
+    <label for="">Gender</label>
+    <select class="form-select" [formControl]="gender">
+      <option value="Female">Female</option>
+      <option value="Male">Male</option>
+      <option value="Other">Other</option>
+    </select>
+    <p
+      class="validation-error"
+      *ngIf="gender.touched && gender.hasError('required')"
+    >
+      Required
+    </p>
+  </div>
+  <div class="form-group my-3">
+    <label for="">Email</label>
+    <input type="text" [formControl]="email" class="form-control" />
+    <p
+      class="validation-error"
+      *ngIf="email.touched && email.hasError('required')"
+    >
+      Required
+    </p>
+    <p
+      class="validation-error"
+      *ngIf="email.touched && email.hasError('maxlength')"
+    >
+      Max 100 characters
+    </p>
+    <p
+      class="validation-error"
+      *ngIf="email.touched && email.hasError('email')"
+    >
+      Invalid email
+    </p>
+  </div>
+  <div class="form-group my-3">
+    <label for="">Marital Status</label>
+    <select class="form-select" [formControl]="maritalStatus">
+      <option value="Married">Married</option>
+      <option value="Unmarried">Unmarried</option>
+    </select>
+    <p
+      class="validation-error"
+      *ngIf="maritalStatus.touched && maritalStatus.hasError('required')"
+    >
+      Required
+    </p>
+  </div>
+  <div class="form-group my-3">
+    <label for="">Source of Income</label>
+    <select class="form-select" [formControl]="sourceOfIncome">
+      <option value="Salary">Salary</option>
+      <option value="Profession">Profession</option>
+      <option value="Agriculture">Agriculture</option>
+      <option value="Pension">Pension</option>
+      <option value="Other">Other</option>
+    </select>
+    <p
+      class="validation-error"
+      *ngIf="sourceOfIncome.touched && sourceOfIncome.hasError('required')"
+    >
+      Required
+    </p>
+  </div>
+  <div class="form-group my-3">
+    <label for="">Annual Income</label>
+    <input type="number" [formControl]="annualIncome" class="form-control" />
+    <p
+      class="validation-error"
+      *ngIf="addressLine1.touched && addressLine1.hasError('required')"
+    >
+      Required
+    </p>
+  </div>
+  <div class="form-group my-3">
+    <label for="">Address Line 1</label>
+    <input type="text" [formControl]="addressLine1" class="form-control" />
+    <p
+      class="validation-error"
+      *ngIf="addressLine1.touched && addressLine1.hasError('required')"
+    >
+      Required
+    </p>
+    <p
+      class="validation-error"
+      *ngIf="addressLine1.touched && addressLine1.hasError('maxlength')"
+    >
+      Max 100 characters
+    </p>
+  </div>
+  <div class="form-group my-3">
+    <label for="">Address Line 2</label>
+    <input type="text" [formControl]="addressLine2" class="form-control" />
+    <p
+      class="validation-error"
+      *ngIf="addressLine2.touched && addressLine2.hasError('required')"
+    >
+      Required
+    </p>
+    <p
+      class="validation-error"
+      *ngIf="addressLine2.touched && addressLine2.hasError('maxlength')"
+    >
+      Max 100 characters
+    </p>
+  </div>
+  <div class="form-group my-3">
+    <label for="">Address Line 3</label>
+    <input type="text" [formControl]="addressLine3" class="form-control" />
+    <p
+      class="validation-error"
+      *ngIf="addressLine3.touched && addressLine3.hasError('required')"
+    >
+      Required
+    </p>
+    <p
+      class="validation-error"
+      *ngIf="addressLine3.touched && addressLine3.hasError('maxlength')"
+    >
+      Max 100 characters
+    </p>
+  </div>
+  <div class="form-group my-3">
+    <label for="">City</label>
+    <input type="text" [formControl]="city" class="form-control" />
+    <p
+      class="validation-error"
+      *ngIf="city.touched && city.hasError('required')"
+    >
+      Required
+    </p>
+    <p
+      class="validation-error"
+      *ngIf="city.touched && city.hasError('maxlength')"
+    >
+      Max 50 characters
+    </p>
+  </div>
+  <div class="form-group my-3">
+    <label for="">State</label>
+    <input type="text" [formControl]="state" class="form-control" />
+    <p
+      class="validation-error"
+      *ngIf="state.touched && state.hasError('required')"
+    >
+      Required
+    </p>
+    <p
+      class="validation-error"
+      *ngIf="state.touched && state.hasError('maxlength')"
+    >
+      Max 50 characters
+    </p>
+  </div>
+  <div class="form-group my-3">
+    <label for="">PIN</label>
+    <input type="text" [formControl]="pin" class="form-control" />
+    <p class="validation-error" *ngIf="pin.touched && pin.hasError('required')">
+      Required
+    </p>
+    <p class="validation-error" *ngIf="pin.touched && pin.hasError('pattern')">
+      Invalid PIN
+    </p>
+  </div>
+  <div class="form-group my-3">
+    <label for="">PAN</label>
+    <input type="text" [formControl]="pan" class="form-control" />
+    <p class="validation-error" *ngIf="pan.touched && pan.hasError('required')">
+      Required
+    </p>
+    <p class="validation-error" *ngIf="pan.touched && pan.hasError('pattern')">
+      Invalid PAN
+    </p>
+  </div>
+  <div class="form-group my-3">
+    <label for="">Date of Birth</label>
+    <input type="date" [formControl]="dateOfBirth" class="form-control" />
+    <p
+      class="validation-error"
+      *ngIf="dateOfBirth.touched && dateOfBirth.hasError('required')"
+    >
+      Required
+    </p>
+  </div>
+  <div class="form-group my-3">
+    <label for="">Mobile Number</label>
+    <input type="text" [formControl]="mobileNumber" class="form-control" />
+    <p
+      class="validation-error"
+      *ngIf="mobileNumber.touched && mobileNumber.hasError('required')"
+    >
+      Required
+    </p>
+    <p
+      class="validation-error"
+      *ngIf="mobileNumber.touched && mobileNumber.hasError('pattern')"
+    >
+      Invalid mobile number
+    </p>
+  </div>
+  <div class="form-group my-3">
+    <label for="">Telephone</label>
+    <input type="text" [formControl]="telephone" class="form-control" />
+
+    <p
+      class="validation-error"
+      *ngIf="telephone.touched && telephone.hasError('pattern')"
+    >
+      Invalid telephone
+    </p>
+  </div>
+  <div class="form-group my-3">
+    <label for="">Nominee First Name</label>
+    <input type="text" [formControl]="nomineeFirstName" class="form-control" />
+    <p
+      class="validation-error"
+      *ngIf="nomineeFirstName.touched && nomineeFirstName.hasError('required')"
+    >
+      Required
+    </p>
+    <p
+      class="validation-error"
+      *ngIf="nomineeFirstName.touched && nomineeFirstName.hasError('maxlength')"
+    >
+      Max 50 characters
+    </p>
+  </div>
+  <div class="form-group my-3">
+    <label for="">Nominee Last Name</label>
+    <input type="text" [formControl]="nomineeLastName" class="form-control" />
+
+    <p
+      class="validation-error"
+      *ngIf="nomineeLastName.touched && nomineeLastName.hasError('maxlength')"
+    >
+      Max 50 characters
+    </p>
+  </div>
+  <div class="form-group my-3">
+    <label for="">Nominee Relationship</label>
+    <input
+      type="text"
+      [formControl]="nomineeRelationship"
+      class="form-control"
+    />
+    <p
+      class="validation-error"
+      *ngIf="
+        nomineeRelationship.touched && nomineeRelationship.hasError('required')
+      "
+    >
+      Required
+    </p>
+    <p
+      class="validation-error"
+      *ngIf="
+        nomineeRelationship.touched && nomineeRelationship.hasError('maxlength')
+      "
+    >
+      Max 50 characters
+    </p>
+  </div>
+  <button class="btn btn-primary">Submit</button>
+</form>

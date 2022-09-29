@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { RestService } from '../rest.service';
@@ -27,27 +32,42 @@ export class CustomerFormComponent implements OnInit {
   ) {
     this.form = this.fb.group({
       id: [],
-      folioNumber: [],
-      firstName: [],
-      lastName: [],
-      gender: [],
-      email: [],
-      maritalStatus: [],
-      sourceOfIncome: [],
-      annualIncome: [],
-      addressLine1: [],
-      addressLine2: [],
-      addressLine3: [],
-      city: [],
-      state: [],
-      pin: [],
-      pan: [],
-      dateOfBirth: [],
-      mobileNumber: [],
-      telephone: [],
-      nomineeFirstName: [],
-      nomineeLastName: [],
-      nomineeRelationship: [],
+      folioNumber: [
+        '',
+        [Validators.required, Validators.pattern(/^[1-9][0-9]{7}$/)],
+      ],
+      firstName: ['', [Validators.required, Validators.maxLength(50)]],
+      lastName: ['', [Validators.maxLength(50)]],
+      gender: ['', [Validators.required]],
+      email: [
+        '',
+        [Validators.required, Validators.maxLength(100), Validators.email],
+      ],
+      maritalStatus: ['', [Validators.required]],
+      sourceOfIncome: ['', [Validators.required]],
+      annualIncome: ['', [Validators.required]],
+      addressLine1: ['', [Validators.required, Validators.maxLength(100)]],
+      addressLine2: [, [Validators.maxLength(100)]],
+      addressLine3: [, [Validators.maxLength(100)]],
+      city: ['', [Validators.required, Validators.maxLength(50)]],
+      state: ['', [Validators.required, Validators.maxLength(50)]],
+      pin: [, [Validators.pattern(/^[1-9][0-9]{5}$/)]],
+      pan: [
+        '',
+        [Validators.required, Validators.pattern(/^[A-Z]{5}[0-9]{4}[A-Z]$/)],
+      ],
+      dateOfBirth: ['', [Validators.required]],
+      mobileNumber: [
+        '',
+        [Validators.required, Validators.pattern(/^[6-9][0-9]{9}$/)],
+      ],
+      telephone: [, [Validators.pattern(/^[0-9]{11}$/)]],
+      nomineeFirstName: ['', [Validators.required, Validators.maxLength(50)]],
+      nomineeLastName: ['', [Validators.maxLength(50)]],
+      nomineeRelationship: [
+        '',
+        [Validators.required, Validators.maxLength(50)],
+      ],
     });
 
     const possibleId = +(this.ar.snapshot.paramMap.get('id') ?? '');
@@ -59,6 +79,9 @@ export class CustomerFormComponent implements OnInit {
         .read<CustomerViewModel>(`customers/${this.formId}`)
         .subscribe({
           next: (res) => {
+            //  required for date deserialization
+            res.dateOfBirth = res.dateOfBirth.split('T')[0];
+            console.log(res);
             this.form.patchValue(res);
             this.toastr.success(`Customer ${this.formId} loaded successfully`);
           },
@@ -140,6 +163,9 @@ export class CustomerFormComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
+    //  what if an empty form is submitted?
+    this.form.markAllAsTouched();
+
     if (this.form.valid) {
       if (this.formId === 0) {
         //post
