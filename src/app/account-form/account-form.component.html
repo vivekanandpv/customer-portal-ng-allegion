@@ -60,6 +60,16 @@
     </p>
   </div>
   <div class="form-group my-3">
+    <label for="">Currency</label>
+    <input type="text" [formControl]="currency" class="form-control" />
+    <p
+      class="validation-error"
+      *ngIf="currency.touched && currency.hasError('required')"
+    >
+      Required
+    </p>
+  </div>
+  <div class="form-group my-3">
     <label for="">Account Type</label>
     <select class="form-select" [formControl]="type">
       <option value="Term">Term</option>
