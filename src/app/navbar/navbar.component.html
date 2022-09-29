@@ -74,7 +74,15 @@
           routerLink="/login"
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }"
+          *ngIf="!(authService.user$ | async)"
           >Login</a
+        >
+        <a
+          class="nav-link active"
+          *ngIf="authService.user$ | async"
+          (click)="authService.logout()"
+          [ngStyle]="{ cursor: 'pointer' }"
+          >Logout</a
         >
       </li>
     </ul>

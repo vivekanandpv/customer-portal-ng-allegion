@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { BehaviorSubject, mergeMap, of } from 'rxjs';
 import { RestService } from './rest.service';
@@ -18,7 +19,7 @@ export class AuthService {
 
   private jwtHelper = new JwtHelperService();
 
-  constructor(private restService: RestService) {
+  constructor(private restService: RestService, private router: Router) {
     const token = localStorage.getItem('token') ?? '';
 
     if (!this.jwtHelper.isTokenExpired(token)) {
@@ -57,5 +58,6 @@ export class AuthService {
   logout() {
     localStorage.removeItem('token');
     this.userSubject.next(null);
+    this.router.navigate(['login']);
   }
 }
